@@ -1,0 +1,153 @@
+<style type="text/css">
+  .form-horizontal input.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+  }
+
+  .form-horizontal input.ng-valid.ng-dirty {
+    border-color: #78FA89;
+  }
+</style>
+
+<div class="view">
+    
+     
+    
+    <div class="container">
+      
+        <div class="row">
+            
+            
+            
+        <nav class= "navbar navbar-default" role= "navigation" >
+        <div class= "navbar-header" >
+        <a class= "navbar-brand" href= "#/manageEvents"><i class="glyphicon glyphicon-th-large"></i> Event List </a>
+        <a ng-show="event._id" class= "navbar-brand" href= "#/edit-event/0"><i class="glyphicon glyphicon-plus"></i> Create Event </a>
+        <a ng-show="event._id" class= "navbar-brand"><i class="glyphicon glyphicon-edit"></i> Currently Editing Event Number: {{event._id}}</a>
+        <a ng-click="adminLogout();" class="navbar-brand pull-right">&nbsp;<i class="glyphicon glyphicon-log-out"></i>&nbsp; Logout</a>
+        </div>
+        </nav>
+        <header>
+            <h3>{{title}}</h3>
+        </header>
+        <div class="col-md-12">
+
+<form role="form" name="myForm" class="form-horizontal">
+<div class="row">
+    
+ <div class= "form-group" ng-class="{error: myForm.name.$invalid}">
+    <label class= "col-md-2"> Event Name </label>
+    <div class="col-md-4">
+    <input name="name" ng-model="event.EventName" type= "text" class= "form-control" placeholder="Event name" required/>
+    <span ng-show="myForm.name.$dirty && myForm.name.$invalid" class="help-inline">Event name Required</span>
+    </div>
+</div> 
+    
+    
+<div class= "form-group" ng-class="{error: myForm.name.$invalid}">
+    <label class= "col-md-2"> Coach Name </label>
+    <div class="col-md-4">
+    <input name="name" ng-model="event.CoachName" type= "text" class= "form-control" placeholder="Coach name" required/>
+    <span ng-show="myForm.name.$dirty && myForm.name.$invalid" class="help-inline">Category  Required</span>
+    </div>
+</div>
+
+<div class= "form-group">
+    <label class= "col-md-2"> Fees </label>
+    <div class="col-md-4">
+    <input name="costpp" ng-model="event.CostPerPerson" type= "text" class= "form-control" placeholder="Enter Fees" required/>
+    <span ng-show="myForm.costpp.$dirty && myForm.number.$invalid && !myForm.costpp.$error.number" class="help-inline">Fees Required</span>
+    <span ng-show="myForm.costpp.$error.number" class="help-inline">Fees should be numeric</span>
+    </div>
+</div>
+    
+<div class= "form-group">
+    <label class= "col-md-2"> Availability</label>
+    <div class="col-md-4">
+    <input name="number" ng-model="event.NoOfAvailable" type= "text" class= "form-control" placeholder="Enter Availability" required/>
+    <span ng-show="myForm.number.$dirty && myForm.number.$invalid && !myForm.number.$error.number" class="help-inline">Availability Required</span>
+    <span ng-show="myForm.number.$error.number" class="help-inline">Availability should be numeric</span>
+    </div>
+</div>    
+
+<div class= "form-group">
+    <label class= "col-md-2">Show (YES/NO)</label>
+    <div class="col-md-4">
+        
+        <select ng-model="event.ShowStaus" class="selectpicker" name="showstatus" required>
+            <option value="{{event.ShowStaus}}">{{event.ShowStaus}}</option>
+            <option value="NO">NO</option>
+            <option value="YES">YES</option>
+        </select>
+    </div>
+</div>
+    
+<div class= "form-group">
+    <label class= "col-md-2">Event Category</label>
+    <div class="col-md-4">
+        
+        <select required ng-model="event.CategoryNameEventData"  class="selectpicker" >
+            <option ng-repeat="c in categ" value="{{c.CategoryName}}">{{c.CategoryName}}</option>
+        </select>
+    </div>
+</div>    
+    
+    
+<div class= "form-group">
+    <label class= "col-md-2">Schedule(Ex: Mon Tue Wed) </label>
+    <div class="col-md-4">
+        <input ng-model="event.DaysInWeek" type= "text" class= "form-control" placeholder= "Schedule" required/>
+    </div>
+</div>
+    
+
+<div class= "form-group">
+    <label class= "col-md-2">Date(YYYY-MM-DD) </label>
+    <div class="col-md-4">
+        <input ng-model="event.StartDate" type= "text" class= "form-control" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" placeholder= "Start Date"/>
+    </div>
+</div>    
+    
+<div class= "form-group">
+    <label class= "col-md-2">Time(Ex: 4:30 PM) </label>
+    <div class="col-md-4">
+        <input ng-model="event.TimeOfEvent" type= "text" class= "form-control" placeholder= "time of event"/>
+    </div>
+</div>
+   
+<div class= "form-group">
+    <label class= "col-md-2">No of Classes</label>
+    <div class="col-md-4">
+        <input ng-model="event.Duration" type= "text" class= "form-control" placeholder= "no of classes" required/>
+    </div>
+</div>
+    
+<div class= "form-group">
+    <label class= "col-md-2">Level</label>
+    <div class="col-md-4">
+        <input ng-model="event.LevelOfCourse" type= "text" class= "form-control" placeholder= "Level of Course"/>
+    </div>
+</div>
+    
+<div class= "form-group">
+    <label class= "col-md-2">Description </label>
+    <div class="col-md-4">
+    <input ng-model="event.EventDescription" type= "text" class= "form-control" placeholder= "Event Description"/>
+    </div>
+</div>
+
+
+<div class= "form-group">
+    <label class= "col-md-2"></label>
+    <div class="col-md-4">
+    <a href="#/manageEvents" class="btn">Cancel</a>
+        <button ng-click="saveEvent(event);" 
+                ng-disabled="isClean() || myForm.$invalid"
+                class="btn btn-primary">{{buttonText}}</button>
+        
+    </div>
+</div>
+</div>
+</form>
+        </div></div>
+    </div>
+</div>

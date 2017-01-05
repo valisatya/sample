@@ -1,0 +1,178 @@
+<style type="text/css">
+  .form-horizontal input.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+  }
+
+  .form-horizontal input.ng-valid.ng-dirty {
+    border-color: #78FA89;
+  }
+</style>
+
+<div class="view">
+    
+     
+    
+    <div class="container">
+      
+        <div class="row">
+            
+            
+            
+        <nav class= "navbar navbar-default" role= "navigation" >
+        <div class= "navbar-header" >
+        <a class= "navbar-brand" href= "#/manageReservations"><i class="glyphicon glyphicon-th-large"></i> Reservations List </a>
+        
+        <a ng-show="reservation._id" class= "navbar-brand"><i class="glyphicon glyphicon-edit"></i> Currently Editing Reservation ID: {{reservation._id}}</a>
+        <a ng-click="adminLogout();" class="navbar-brand pull-right">&nbsp;<i class="glyphicon glyphicon-log-out"></i>&nbsp; Logout</a>
+        </div>
+        </nav>
+        <header>
+            <h3>{{title}}</h3>
+        </header>
+        <div class="col-md-12">
+
+<form role="form" name="myForm" class="form-horizontal">
+<div class="row">
+    
+ <div class= "form-group">
+    <label class= "col-md-2">Reservation ID</label>
+    <div class="col-md-4">
+    <label> {{reservation.ReservationID}}</label>
+    </div>
+</div> 
+ 
+<div class= "form-group">
+    <label class= "col-md-2">Event ID</label>
+    <div class="col-md-4">
+    <label> {{reservation.EventIDReservationData}}</label>
+    </div>
+</div> 
+ 
+<div class= "form-group">
+    <label class= "col-md-2">Last Modified By</label>
+    <div class="col-md-4">
+    <label> {{reservation.AdminIDReservationData}}</label>
+    </div>
+</div>     
+    
+<div class= "form-group" >
+    <label class= "col-md-2">Candidate Name </label>
+    <div class="col-md-4">
+    <input name="name" ng-model="reservation.CandidateName" type= "text" class= "form-control" placeholder="Candidate name" required/>
+    </div>
+</div>
+
+<div class= "form-group">
+    <label class= "col-md-2"> Email address </label>
+    <div class="col-md-4">
+    <input name="email" ng-model="reservation.Email" type= "email" class= "form-control" placeholder="Enter email" required/>
+    </div>
+</div>
+    
+    
+
+<div class= "form-group">
+    <label class= "col-md-2"> Age </label>
+    <div class="col-md-4">
+    <input name="ageofc" ng-model="reservation.Age" type= "text" class= "form-control" placeholder="Enter Age" required/>
+    </div>
+</div>
+    
+    
+ <div class= "form-group">
+    <label class= "col-md-2">Gender</label>
+    <div class="col-md-4">
+        
+        <select ng-model="reservation.Gender" class="selectpicker" name="showstatus" required>
+            <option value="{{reservation.Gender}}">{{reservation.Gender}}</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+        </select>
+    </div>
+</div>   
+    
+<div class= "form-group">
+    <label class= "col-md-2">Guardian Name</label>
+    <div class="col-md-4">
+        <input ng-model="reservation.GuardianName" type= "text" class= "form-control" placeholder= "Guardian Name"/>
+    </div>
+</div>
+    
+<div class= "form-group">
+    <label class= "col-md-2">Guardian Relation</label>
+    <div class="col-md-4">
+        <input ng-model="reservation.GuardianRelation" type= "text" class= "form-control" placeholder= "Guardian Relation"/>
+    </div>
+</div>
+    
+    
+<div class= "form-group">
+    <label class= "col-md-2">Confirm (YES/NO)</label>
+    <div class="col-md-4">
+        
+        <select ng-model="reservation.ConfirmationStatus" class="selectpicker" name="confStatus" >
+            <option value="{{reservation.ConfirmationStatus}}">{{reservation.ConfirmationStatus}}</option>
+            <option value="NO">NO</option>
+            <option value="YES">YES</option>
+            <option value="PENDING">PENDING</option>
+        </select>
+    </div>
+</div>
+    
+     
+<div class= "form-group">
+    <label class= "col-md-2"> Billing Address</label>
+    <div class="col-md-4">
+        <input ng-model="reservation.BillingAddress" type= "text" class= "form-control" placeholder= "Remarks"/>
+    </div>
+</div>  
+    
+    
+<div class= "form-group">
+    <label class= "col-md-2"> Remarks</label>
+    <div class="col-md-4">
+        <textarea  ng-model="reservation.Remarks" type= "text" class= "form-control" placeholder= "Remarks" required></textarea>
+    </div>
+</div>
+       
+<div class= "form-group">
+        <label class="col-md-2 control-label">Credit card number</label>
+        <div class="col-md-4">
+            <input type="text" maxlength="20" class="form-control" ng-model="reservation.CardNumber" name="cc" placeholder= "card number" />
+        </div>
+</div>    
+
+<div class= "form-group">
+        <label class="col-md-2 control-label">Expiry MM/YYYY</label>
+        <div class="col-md-2">
+            <input type="text" maxlength="2" class="form-control" ng-model="reservation.expiryMonth" name="cc" placeholder= "month" />
+        </div>
+        <div class="col-md-2">
+            <input type="text" maxlength="4" class="form-control" ng-model="reservation.expiryYear" name="cc" placeholder= "Year" />
+        </div>
+</div> 
+    
+<div class= "form-group">
+        <label class="col-md-2 control-label">CVV</label>
+        <div class="col-md-4">
+            <input type="text" maxlength="4" class="form-control" ng-model="reservation.cvv" name="cc" placeholder= "card number" />
+        </div>
+</div> 
+
+
+
+<div class= "form-group">
+    <label class= "col-md-2"></label>
+    <div class="col-md-4">
+    <a href="#/manageReservations" class="btn">Cancel</a>
+        <button ng-click="saveReservation(reservation);" 
+                ng-disabled="isClean()"
+                class="btn btn-primary">{{buttonText}}</button>
+        
+    </div>
+</div>
+</div>
+</form>
+        </div></div>
+    </div>
+</div>

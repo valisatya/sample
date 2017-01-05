@@ -1,0 +1,18 @@
+<div class="view">
+    <div class="container">
+        <form class="form-signin col-md-9" name="myForm" >
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <span ng-show="errorLoginMsg == 'INVALID'" class="help-inline">Invalid username or Password</span>
+            <label  class="sr-only">User ID</label>
+            <input type="text" id="inputEmail" class="form-control" ng-model="admin.AdminID" placeholder="user ID" required="" autofocus=""><br/>
+            <label  class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" ng-model="admin.AdminPassword" placeholder="Password" required="">
+            <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="getAdmin(admin);">Sign in</button>
+      </form>
+    </div>
+</div>

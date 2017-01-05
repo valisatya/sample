@@ -1,0 +1,94 @@
+<style type="text/css">
+  .form-horizontal input.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+  }
+
+  .form-horizontal input.ng-valid.ng-dirty {
+    border-color: #78FA89;
+  }
+</style>
+
+<div class="view">
+    
+     
+    
+    <div class="container">
+      
+        <div class="row">
+            
+            
+            
+        <nav class= "navbar navbar-default" role= "navigation" >
+        <div class= "navbar-header" >
+        <a class= "navbar-brand" href= "#/manageAnnouncement"><i class="glyphicon glyphicon-th-large"></i> Announcement List </a>
+        <a ng-show="announcement._id" class= "navbar-brand" href= "#/edit-announcement/0"><i class="glyphicon glyphicon-plus"></i> Create Announcement </a>
+        <a ng-show="announcement._id" class= "navbar-brand"><i class="glyphicon glyphicon-edit"></i> Currently Editing Announcement: {{announcement._id}}</a>
+        <a ng-click="adminLogout();" class="navbar-brand pull-right">&nbsp;<i class="glyphicon glyphicon-log-out"></i>&nbsp; Logout</a>
+        </div>
+        </nav>
+        <header>
+            <h3>{{title}}</h3>
+        </header>
+        <div class="col-md-12">
+
+<form role="form" name="myForm" class="form-horizontal">
+<div class="row">
+    
+ <div class= "form-group" ng-class="{error: myForm.name.$invalid}">
+    <label class= "col-md-2"> Heading</label>
+    <div class="col-md-4">
+    <input name="name" ng-model="announcement.Heading" type= "text" class= "form-control" placeholder="Heading" required/>
+    <span ng-show="myForm.name.$dirty && myForm.name.$invalid" class="help-inline">Heading Required</span>
+    </div>
+</div> 
+    
+<div class= "form-group">
+    <label class= "col-md-2">Description </label>
+    <div class="col-md-4">
+        <textarea ng-model="announcement.BodyContent" type= "text" class= "form-control" required placeholder= "Description"></textarea>
+    </div>
+</div>
+    
+<div class= "form-group">
+    <label class= "col-md-2">Location (Top/Bottom)</label>
+    <div class="col-md-4">
+        
+        <select ng-model="announcement.Location" class="selectpicker" name="LocationData">
+            <option value="{{announcement.Location}}">{{announcement.Location}}</option>
+            <option value="BOTTOM">BOTTOM</option>
+            <option value="TOP">TOP</option>
+        </select>
+    </div>
+</div>       
+
+<div class= "form-group">
+    <label class= "col-md-2">Publish (YES/NO)</label>
+    <div class="col-md-4">
+        
+        <select ng-model="announcement.Publish" class="selectpicker" name="PublishStatus">
+            <option value="{{announcement.Publish}}">{{announcement.Publish}}</option>
+            <option value="NO">NO</option>
+            <option value="YES">YES</option>
+        </select>
+    </div>
+</div>
+    
+    
+
+
+
+<div class= "form-group">
+    <label class= "col-md-2"></label>
+    <div class="col-md-4">
+    <a href="#/manageAnnouncement" class="btn">Cancel</a>
+        <button ng-click="saveEvent(announcement);" 
+                ng-disabled="isClean() || myForm.$invalid"
+                class="btn btn-primary">{{buttonText}}</button>
+        
+    </div>
+</div>
+</div>
+</form>
+        </div></div>
+    </div>
+</div>

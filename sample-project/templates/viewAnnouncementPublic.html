@@ -1,0 +1,17 @@
+<div class="col-md-10" ng-show="annouceDetails.length !=0">
+    <h3>Important updates..!</h3>
+    <div id="top" ng-repeat="data in annouceDetails">
+        <div class="panel panel-default" ng-show="data.Location == 'TOP'">
+        <div class="panel-heading">{{data.Heading}}</div>
+        <div class="panel-body">{{data.BodyContent}}</div>
+        </div>
+    </div>
+    <h3>Updates</h3>
+    <div id="bottom" ng-repeat="data in annouceDetails">
+        <div class="panel panel-default" ng-show="data.Location == 'BOTTOM'">
+        <div class="panel-heading">{{data.Heading}}</div>
+        <div class="panel-body">{{data.BodyContent}}</div>
+        </div>
+    </div>
+    
+</div>

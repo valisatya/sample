@@ -1,0 +1,61 @@
+ <div class="col-md-10">
+     
+                        <form id="searchbox" action="" >
+                            <div class="col-lg-6 col-md-offset-3">
+                                <br/><br/>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="regID"  placeholder="Registration ID" required>
+
+                                  <span class="input-group-btn">
+                                      
+                                      <button ng-click="getReservation(regID);" ng-disabled="regID ==null"  class="btn btn-primary">Go..</button>
+                                  </span>
+                                </div><!-- /input-group -->
+                             </div>
+                        </form>
+                            
+</div>
+
+<div class="col-md-10" ng-show="ReservationMatched.length!==0">
+    <br/><br/>
+    <div ng-show="ReservationMatched.CandidateName != 'NotFound'">
+     <table class="table table-striped table-bordered">
+        
+         <tbody >
+             <tr>
+                <th>Reservation ID&nbsp;</th>
+                <td>{{ReservationMatched.ReservationID}}</td>
+            </tr>
+            <tr>
+                <th>Candidate Name&nbsp;</th>
+                <td>{{ReservationMatched.CandidateName}}</td>
+            </tr>
+            
+            <tr>
+                <th>Email&nbsp;</th>
+                <td>{{ReservationMatched.Email}}</td>
+            </tr>
+           
+             <tr>
+                <th>Confirmation Status&nbsp;</th>
+                <td>{{ReservationMatched.ConfirmationStatus}}</td>
+            </tr>
+            
+            <tr>
+                <th>Remarks&nbsp;</th>
+                <td>{{ReservationMatched.Remarks}}</td>
+            </tr>
+            
+ 
+        </tbody>
+      </table>
+    <a href="#/contact/"  class="btn btn-info" >any questions contact us</a>
+    </div>
+    <div class="col-md-10" ng-show="ReservationMatched.CandidateName == 'NotFound'">
+        <div class="col-md-10">
+            <h4>No Reservations found. Please enter valid ID</h4>
+        </div>
+</div>
+    
+</div>
+

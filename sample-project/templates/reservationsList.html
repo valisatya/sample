@@ -1,0 +1,38 @@
+ <div class="row">
+     
+            <div>
+                <span class= "col-lg-7">Welcome <b>{{adminNameLogged}}</b> <a ng-click="adminLogout();" class="btn">&nbsp;<i class="glyphicon glyphicon-log-out"></i>&nbsp; Logout</a></span>
+                
+            </div>
+     
+    <div class="col-md-12" ng-show="allReservations.length > 0">
+    
+    <br/>
+        <table class="table table-striped table-bordered">
+        <thead>
+        <th>Candidate Name&nbsp;</th>
+        <th>Reservation ID&nbsp;</th>
+        <th>Event ID&nbsp;</th>
+        <th>Confirmation&nbsp;</th>
+        <th>Remarks&nbsp;</th>
+        
+        <th>Action&nbsp;</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="data in allReservations">
+                <td>{{data.CandidateName}}</td>
+                <td>{{data.ReservationID}}</td>
+                <td>{{data.EventIDReservationData}}</td>
+                <td>{{data.ConfirmationStatus}}</td>
+                <td>{{data.Remarks}}</td>
+                <td><a href="#/edit-reservation/{{data.ReservationID}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Edit Reservation</a></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    <div class="col-md-12" ng-show="allReservations.length == 0">
+        <div class="col-md-12">
+            <h4>No Reservations found</h4>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<br/><br/>
+<div ng-repeat="data in eventDataByID">
+<div class="col-md-6" >
+     <table class="table table-striped table-bordered">
+        
+         <tbody >
+             <tr>
+                <th>Event Name&nbsp;</th>
+                <td>{{data.EventName}}</td>
+            </tr>
+            <tr>
+                <th>Trainer Name&nbsp;</th>
+                <td>{{data.CoachName}}</td>
+            </tr>
+            
+            <tr>
+                <th>Number of Classes&nbsp;</th>
+                <td>{{data.Duration}}</td>
+            </tr>
+            <tr>
+                <th>Course Level&nbsp;</th>
+                <td>{{data.LevelOfCourse}}</td>
+            </tr>
+            <tr>
+                <th>Start Date&nbsp;</th>
+                <td>{{data.StartDate | date : "MM.dd.y"}}</td>
+            </tr>
+            <tr>
+                <th>Availability&nbsp;</th>
+                <td ng-class="{'makeFontRed': data.NoOfAvailable < 10}" >{{data.NoOfAvailable}}</td>
+            </tr>
+            <tr>
+                <th>Fees&nbsp;</th>
+                <td>{{data.CostPerPerson | currency}}</td>
+            </tr>
+            <tr>
+                <th>Scheduled on&nbsp;</th>
+                <td>{{data.TimeOfEvent}}</td>
+            </tr>
+            <tr>
+                <th>Days in week&nbsp;</th>
+                <td>{{data.DaysInWeek}}</td>
+            </tr>
+            <tr>
+                <th>Category&nbsp;</th>
+                <td>{{data.CategoryNameEventData}}</td>
+            </tr>
+            
+            
+            
+        </tbody>
+      </table>
+    <a href="#/registerEventSelected/{{data.EventID}}" ng-class="{'disabled': data.NoOfAvailable < 1}"  class="btn btn-info" role="button">Register</a>
+
+</div>
+    
+  
+    
+</div>

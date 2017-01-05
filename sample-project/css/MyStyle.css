@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 19, 2016, 1:26:15 PM
+    Author     : chandu
+*/
+
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+.h-divider{
+ margin-top:15px;
+ margin-bottom:15px;
+ height:1px;
+ width:95%;
+ border-top:1px solid gray;
+}
+.v-divider{
+ margin-left:5px;
+ margin-right:5px;
+ width:74% !important;
+ height:100%;
+ border-left:1px solid gray;
+}
+.makeFontRed{
+    color: red;
+    font-weight: bold;
+}
